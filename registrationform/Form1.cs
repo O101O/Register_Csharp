@@ -48,7 +48,7 @@ public partial class Form1 : Form
         student.Name = name.Text;
         student.Roll = int.Parse(roll.Text);
         student.Dob = date.Text;  
-        student.Gender = gbGender.Text;
+        student.Gender = gender;
         student.Email = mail.Text;
         student.Mobile = number.Text;
         student.Password = password.Text;

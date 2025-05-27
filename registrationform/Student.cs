@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using System.Data;
+using MySql.Data.MySqlClient;
 using Mysqlx.Crud;
 
 namespace registrationform;
@@ -19,11 +20,21 @@ public class Student
     public string[] Hobbies { get; set; }
     public string Password{ get; set; }
 
+
+    string connStr;
+    MySqlConnection conn;
+    MySqlCommand cmd;
+    
+    public Student()
+    {
+        connStr = "server=localhost;port=3306;userid=root;password=;database=student";
+        conn = new MySqlConnection(connStr);
+        conn.Open();
+    }
+
     
     public void Register()
     {
-        string connStr = "server=localhost;port=3306;userid=root;password=;database=student";
-
         // Join hobbies array into a single string (handle null case)
         string hobbiesStr = Hobbies != null ? string.Join(",", Hobbies) : "";
         
@@ -32,9 +43,9 @@ public class Student
         // SQL query with parameters (specify all columns)
         string query = @"INSERT INTO students (Name, Roll, Dob, Gender, Email, Mobile, Password, City, Address, Hobbies) VALUES(@Name, @Roll, @Dob, @Gender, @Email, @Mobile, @Password, @City, @Address, @Hobbies)";
 
-        using (MySqlConnection conn = new MySqlConnection(connStr))
+        using (conn)
         {
-            using (MySqlCommand cmd = new MySqlCommand(query, conn))
+            using (cmd = new MySqlCommand(query, conn))
             {
                 // Add parameters to prevent SQL Injection
                 cmd.Parameters.AddWithValue("@Name", Name);
@@ -47,16 +58,24 @@ public class Student
                 cmd.Parameters.AddWithValue("@City", City);
                 cmd.Parameters.AddWithValue("@Address", Address);
                 cmd.Parameters.AddWithValue("@Hobbies", hobbiesStr);
-
-                conn.Open();
                 cmd.ExecuteNonQuery();
             }
         }
     }
     
-    
-        public void update(){}
-        public void getStudent(){}
+
+
+    public void update() { }
+
+    public DataTable getStudent()
+    {
+        string qry = "SELECT * FROM students";
+        cmd = new MySqlCommand(qry, conn);
+        MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        adapter.Fill(dt);
+        return dt;
+    }
         public void getStudentsById(){}
         public void searchStudent(){}
         public void delete(){}
