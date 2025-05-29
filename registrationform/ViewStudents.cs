@@ -30,4 +30,9 @@ public partial class ViewStudents : Form
             MessageBox.Show("No student found");    
         }
     }
+
+    private void Search_Click(object sender, EventArgs e)
+    {
+        
+    }
 }

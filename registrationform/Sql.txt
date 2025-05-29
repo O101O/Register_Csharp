@@ -1,0 +1,13 @@
+﻿CREATE TABLE Students (
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(255) NOT NULL,
+    Roll INT UNIQUE NOT NULL,
+    Dob DATE,
+    Gender VARCHAR(50),
+    Email VARCHAR(255) UNIQUE NOT NULL,
+    Mobile VARCHAR(20) UNIQUE NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    City VARCHAR(100),
+    Address TEXT,
+    Hobbies MEDIUMTEXT
+);

@@ -62,6 +62,7 @@ partial class ViewStudents
         Search.TabIndex = 2;
         Search.Text = "Search";
         Search.UseVisualStyleBackColor = true;
+        Search.Click += Search_Click;
         // 
         // ViewStudents
         // 
