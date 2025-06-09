@@ -17,3 +17,5 @@ C:\Users\nooid\RiderProjects\registrationform\registrationform\bin\Debug\net9.0-
 C:\Users\nooid\RiderProjects\registrationform\registrationform\bin\Debug\net9.0-windows\MySql.Data.xml
 C:\Users\nooid\RiderProjects\registrationform\registrationform\obj\Debug\net9.0-windows\registra.9E55EE26.Up2Date
 C:\Users\nooid\RiderProjects\registrationform\registrationform\obj\Debug\net9.0-windows\registrationform.sourcelink.json
+C:\Users\nooid\RiderProjects\registrationform\registrationform\obj\Debug\net9.0-windows\registrationform.ViewStudents.resources
+C:\Users\nooid\RiderProjects\registrationform\registrationform\obj\Debug\net9.0-windows\registrationform.csproj.GenerateResource.cache

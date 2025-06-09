@@ -77,7 +77,11 @@ public class Student
         return dt;
     }
         public void getStudentsById(){}
-        public void searchStudent(){}
+
+        public void searchStudent()
+        {
+            
+        }
         public void delete(){}
 
 
